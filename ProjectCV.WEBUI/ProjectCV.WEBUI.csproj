@@ -18,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProjectCV.BLL\ProjectCV.BLL\ProjectCV.BLL.csproj" />
     <ProjectReference Include="..\ProjectCV.DAL\ProjectCV.DAL.csproj" />
+    <ProjectReference Include="..\ProjectCV.ENTITY\ProjectCV.ENTITY.csproj" />
   </ItemGroup>
 
 </Project>
