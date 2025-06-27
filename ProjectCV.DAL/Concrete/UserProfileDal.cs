@@ -1,4 +1,5 @@
-﻿using ProjectCV.DAL.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjectCV.DAL.Context;
 using ProjectCV.ENTITY.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,8 @@ namespace ProjectCV.DAL.Concrete
         }
         public UserProfile GetUserProfile()
         {
-           return _context.UserProfiles.FirstOrDefault();            
+           return _context.UserProfiles.Include(up => up.SocialMedias)
+                .FirstOrDefault();
         }   
     }
 }
