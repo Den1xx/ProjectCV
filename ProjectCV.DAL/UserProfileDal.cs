@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectCV.DAL.Concrete
+namespace ProjectCV.DAL
 {
     public class UserProfileDal
     {

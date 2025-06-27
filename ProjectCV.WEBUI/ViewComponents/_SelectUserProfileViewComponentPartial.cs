@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProjectCV.BLL.Concrete;
+using ProjectCV.BLL;
 using ProjectCV.ENTITY.Entities;
 
-namespace ProjectCV.WEBUI.ViewComponents.UserProfile
+namespace ProjectCV.WEBUI.ViewComponents
 {
     public class _SelectUserProfileViewComponentPartial : ViewComponent
     {

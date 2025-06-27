@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProjectCV.BLL.Concrete;
+using ProjectCV.BLL;
 
 namespace ProjectCV.Controllers
 {
@@ -12,8 +12,7 @@ namespace ProjectCV.Controllers
         }
         public IActionResult Index()
         {
-            var userProfile = _userProfileService.GetUserProfile();
-            return View(userProfile);
+            return View();
         }
     }
 }

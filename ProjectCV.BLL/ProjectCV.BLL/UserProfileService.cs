@@ -1,4 +1,4 @@
-﻿using ProjectCV.DAL.Concrete;
+﻿using ProjectCV.DAL;
 using ProjectCV.ENTITY.Entities;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectCV.BLL.Concrete
+namespace ProjectCV.BLL
 {
     public class UserProfileService
     {
