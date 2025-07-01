@@ -17,7 +17,8 @@ namespace ProjectCV.DAL
         }
         public List<Skill> GetSkills()
         {
-            return _context.Skills.ToList();
+            var result = _context.Skills.ToList();
+            return result;
         }
     }
 }
