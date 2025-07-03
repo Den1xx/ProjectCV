@@ -8,7 +8,7 @@
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>Skills</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        @* <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> *@
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -21,7 +21,7 @@
                     <div class="progress">
                     <span class="skill"><span>@Model[i].Name</span> <i class="val">@Model[i].Rating%</i></span>
                     <div class="progress-bar-wrap">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="@Model[i].Rating" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div><!-- End Skills Item -->
                 }                       
@@ -34,7 +34,7 @@
                     <div class="progress">
                     <span class="skill"><span>@Model[i].Name</span> <i class="val">@Model[i].Rating%</i></span>
                     <div class="progress-bar-wrap">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="@Model[i].Rating" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div><!-- End Skills Item -->
                 }
