@@ -1,0 +1,12 @@
+﻿@using System.Globalization
+@model List<Certificate>
+
+<h3 class="resume-title">Certificates</h3>
+@foreach (var cert in Model)
+{
+    <div class="resume-item pb-0">
+    <h4>@cert.Name</h4>
+    <p><em>@cert.Institution (@cert.StartDate.ToString("MMMM yyyy", new CultureInfo("en-US")) - @cert.EndDate.ToString("MMMM yyyy", new CultureInfo("en-US"))) </em></p>
+    
+</div>
+}

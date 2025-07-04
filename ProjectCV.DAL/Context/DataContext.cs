@@ -21,6 +21,7 @@ namespace ProjectCV.DAL.Context
         public DbSet<About> Abouts { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Education> Educations { get; set; }
+        public DbSet<Certificate> Certificates { get; set; }
 
     }
 }
