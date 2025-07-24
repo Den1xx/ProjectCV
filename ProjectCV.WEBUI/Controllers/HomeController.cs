@@ -3,13 +3,8 @@ using ProjectCV.BLL;
 
 namespace ProjectCV.Controllers
 {
-    public class HomeController : Controller
-    {
-        private readonly UserProfileService _userProfileService;
-        public HomeController()
-        {
-            _userProfileService = new UserProfileService();
-        }
+    public class HomeController : Controller    {
+        
         public IActionResult Index()
         {
             return View();
