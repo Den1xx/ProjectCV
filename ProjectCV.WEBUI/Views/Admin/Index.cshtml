@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
@@ -10,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard v2</h1>
+                    <h1 class="m-0">CV Maker Panel</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -30,7 +29,9 @@
         <!-- /.card-header -->
         <!-- form start -->
         <form>
+            @* user profile section *@
             <div class="card-body">
+                
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
                     <input type="text" class="form-control" id="name" placeholder="Type your name">
@@ -42,7 +43,7 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Social Media</label>
                     <input type="text" class="form-control" id="socialMedia" placeholder="Your social media">
-                </div>                
+                </div>
                 <div class="form-group">
                     <label for="exampleInputFile">Profile Image</label>
                     <div class="input-group">
@@ -56,6 +57,36 @@
                     </div>
                 </div>
                 
+            </div>
+            @* User profile section *@
+            
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Text</label>
+                    <input type="text" class="form-control" id="name" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Profile Image</label>
+                <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Title</label>
+                    <input type="text" class="form-control" id="surname" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> Cover Letter</label>
+                    <input type="text" class="form-control" id="socialMedia" placeholder="">
+                </div>
+
+
             </div>
             <!-- /.card-body -->
 
