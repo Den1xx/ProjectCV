@@ -21,6 +21,7 @@ namespace ProjectCV.DAL
         {
            return _context.UserProfiles.Include(up => up.SocialMedias)
                 .FirstOrDefault();
-        }   
+        }
+        
     }
 }
