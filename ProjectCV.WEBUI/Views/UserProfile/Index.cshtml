@@ -2,6 +2,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+<div class="content-wrapper">
 <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -27,9 +28,9 @@
         <!-- /.card-header -->
         <!-- form start -->
         <form>
-        @* user profile section *@
+            @* user profile section *@
             <div class="card-body">
-
+                
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
                     <input type="text" class="form-control" id="name" placeholder="Type your name">
@@ -54,11 +55,11 @@
                         </div>
                     </div>
                 </div>
-
+                
             </div>
-        @* User profile section *@
-
-        @* <div class="card-body">
+            @* User profile section *@
+            
+            @* <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Text</label>
                     <input type="text" class="form-control" id="name" placeholder="">
@@ -120,5 +121,6 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
+    </div>
     </div>
     <!-- /.content -->
