@@ -19,5 +19,10 @@ namespace ProjectCV.BLL
         {
             return _userProfileDal.GetUserProfile();
         }
+        public void Update(UserProfile updatedProfile)
+        {
+            _userProfileDal.Update(updatedProfile);
+        }
+
     }
 }

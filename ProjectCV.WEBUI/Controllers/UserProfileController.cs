@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProjectCV.ENTITY.Entities;
 
 namespace ProjectCV.WEBUI.Controllers
 {
@@ -7,6 +8,10 @@ namespace ProjectCV.WEBUI.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        public void Edit(int id)
+        {
+
         }
     }
 }
