@@ -15,16 +15,17 @@ namespace ProjectCV.WEBUI.Controllers
             _userProfileService = new UserProfileService();
             _mapper = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<UserProfile, UserProfile>();
+                cfg.CreateMap<UserProfileUpdateDTO, UserProfile>();
+                cfg.CreateMap<UserProfile, UserProfileUpdateDTO>();
             }).CreateMapper();
         }
         public IActionResult Index()
         {
             var user = _userProfileService.GetUserProfile();
-            return View();
+            return View(user);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Update(int? id)
         {
             if (id == null)
             {
