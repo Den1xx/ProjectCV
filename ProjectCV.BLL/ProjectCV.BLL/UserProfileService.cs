@@ -21,7 +21,7 @@ namespace ProjectCV.BLL
         }
         public void Update(UserProfile updatedProfile)
         {
-            _userProfileDal.Update(updatedProfile);
+            _userProfileDal.UpdateUserProfile(updatedProfile);
         }
 
     }

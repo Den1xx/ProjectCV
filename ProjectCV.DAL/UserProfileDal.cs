@@ -24,19 +24,43 @@ namespace ProjectCV.DAL
            return _context.UserProfiles.Include(up => up.SocialMedias)
                 .FirstOrDefault();
         }
-        public void Update(UserProfile updatedProfile)
+
+        public UserProfile GetUserProfileById(int id)
         {
-            var existingProfile = _context.UserProfiles
+            return _context.UserProfiles
                 .Include(up => up.SocialMedias)
-                .FirstOrDefault(up => up.Id == updatedProfile.Id);
-
-            if (existingProfile != null)
-            {
-                _mapper.Map(updatedProfile, existingProfile);
-
-                _context.SaveChanges();
-            }
+                 .FirstOrDefault(up => up.Id == id);
         }
+
+        public int UpdateUserProfile(UserProfile UpdateUserProfile)
+        {
+            var userProfile = _context.UserProfiles.Find(UpdateUserProfile.Id);
+
+            userProfile.Id = UpdateUserProfile.Id;
+            userProfile.Name = UpdateUserProfile.Name;
+            userProfile.Surname = UpdateUserProfile.Surname;
+            userProfile.ProfileImage = UpdateUserProfile.ProfileImage;
+            userProfile.BackgroundImage = UpdateUserProfile.BackgroundImage;
+            
+            return _context.SaveChanges();
+        }
+
+
+        //public void Update(UserProfile updatedProfile)
+        //{
+        //    var existingProfile = _context.UserProfiles
+        //        .Include(up => up.SocialMedias)
+        //        .FirstOrDefault(up => up.Id == updatedProfile.Id);
+
+        //    if (existingProfile != null)
+        //    {
+        //        _mapper.Map(updatedProfile, existingProfile);
+
+        //        _context.SaveChanges();
+        //    }
+        //}
+
+
 
     }
 }
