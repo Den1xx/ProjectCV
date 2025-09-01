@@ -34,7 +34,8 @@ namespace ProjectCV.DAL
 
         public int UpdateUserProfile(UserProfile UpdateUserProfile)
         {
-            var userProfile = _context.UserProfiles.Find(UpdateUserProfile.Id);
+            var userProfile = _context.UserProfiles.Include(up => up.SocialMedias)
+                .FirstOrDefault(up => up.Id == UpdateUserProfile.Id);
 
             userProfile.Id = UpdateUserProfile.Id;
             userProfile.Name = UpdateUserProfile.Name;
