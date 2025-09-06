@@ -15,6 +15,7 @@ namespace ProjectCV.DAL.Mapping
         public MappingProfile()
         {
             CreateMap<UserProfileUpdateDTO,UserProfile>().ReverseMap();
+            CreateMap<SocialMediaUpdateDTO,SocialMedia>().ReverseMap();
         }
     }
 }

@@ -30,8 +30,9 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form>
+        <form asp-action="Update" asp-controller="UserProfile"method="post" enctype="multipart/form-data">
             @* user profile section *@
+            <input type="hidden" 
             <div class="card-body">
 
                 <div class="form-group">
@@ -42,15 +43,27 @@
                     <label for="exampleInputPassword1">Surname</label>
                     <input type="text" asp-for="Surname" class="form-control" id="surname" placeholder="Type your name">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Social Media</label>
-                    <input type="text" class="form-control" id="socialMedia" placeholder="Your social media">
-                </div>
+                    @for (int i=0; i< Model.SocialMedias.Count;i++)
+                    {
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Social Media</label>
+                        <input asp-for="SocialMedias[i].Name" class="form-control" id="socialMedia">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Social Media</label>
+                        <input asp-for="SocialMedias[i].Url" class="form-control" id="socialMedia">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Social Media</label>
+                        <input asp-for="SocialMedias[i].Icon" class="form-control" id="socialMedia">
+                    </div>
+                    }
+              
                 <div class="form-group">
                     <label for="exampleInputFile">Profile Image</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                            <input type="file" class="custom-file-input" name="profileFile" id="exampleInputFile">
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                         </div>
                         <div class="input-group-append">
@@ -58,7 +71,18 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label for="exampleInputFile">Background Image</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="backgroundFile" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             @* User profile section *@
 

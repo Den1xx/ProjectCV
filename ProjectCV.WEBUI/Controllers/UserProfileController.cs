@@ -32,6 +32,7 @@ namespace ProjectCV.WEBUI.Controllers
                 return BadRequest("Invalid user ID.");
             }
             var UserProfile = _userProfileService.GetUserProfile();
+            ViewBag.UserProfileSocial = UserProfile.SocialMedias;
             if (UserProfile == null)
             {
                 return NotFound("User not found.");
@@ -39,6 +40,44 @@ namespace ProjectCV.WEBUI.Controllers
             var userProfileDto = _mapper.Map<UserProfileUpdateDTO>(UserProfile);
             return View(userProfileDto);
         }
-        
+
+        [HttpPost]
+        public async Task<ActionResult> Update(UserProfileUpdateDTO model, IFormFile profileFile, IFormFile backgroundFile)
+        {
+            ModelState.Remove("ProfileImage");
+            ModelState.Remove("BackgroundImage");
+            if (ModelState.IsValid)
+            {
+                string newFileName = profileFile.FileName;
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\img", newFileName);
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await profileFile.CopyToAsync(stream);
+                }
+
+                model.ProfileImage = newFileName;
+
+
+                string newFileName2 = backgroundFile.FileName;
+                var path2 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\img", newFileName2);
+
+                using (var stream = new FileStream(path2, FileMode.Create))
+                {
+                    await backgroundFile.CopyToAsync(stream);
+                }
+
+                model.BackgroundImage = newFileName2;
+
+                var userProfile = _mapper.Map<UserProfile>(model);
+
+                _userProfileService.Update(userProfile);
+
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
+
     }
 }
