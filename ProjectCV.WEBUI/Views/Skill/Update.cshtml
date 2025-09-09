@@ -1,5 +1,5 @@
-﻿@using ProjectCV.DAL.DTOs.UserProfileDto
-@model SkillUpdateDTO
+﻿@using ProjectCV.DAL.DTOs.SkillUpdateDTO
+@model List<SkillUpdateDTO>
 
 @{
     ViewData["Title"] = "Index";
@@ -30,22 +30,23 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form asp-action="Index" asp-controller="Skill" method="post">
+        <form asp-action="Update" asp-controller="Skill" method="post">
 
             @* Skill update *@
             <input type="hidden"
             <div class="card-body">
-
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" asp-for="Name" class="form-control" id="name">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Rating</label>
-                    <input type="number" asp-for="Rating" class="form-control" id="rating">
-                </div>                
-
-                
+                @for (int i = 0;  i < Model.Count(); i++)
+                {
+                    <input type="hidden" asp-for="@Model[i].Id" />
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" asp-for="@Model[i].Name" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Rating</label>
+                        <input type="number" asp-for="@Model[i].Rating" class="form-control" id="rating">
+                    </div>
+                }                        
                 
             </div>
 

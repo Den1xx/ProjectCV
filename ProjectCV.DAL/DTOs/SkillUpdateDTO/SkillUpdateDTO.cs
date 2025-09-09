@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectCV.DAL.DTOs.UserProfileDto
+namespace ProjectCV.DAL.DTOs.SkillUpdateDTO
 {
     public class SkillUpdateDTO
     {

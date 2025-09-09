@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ProjectCV.BLL;
-using ProjectCV.DAL.DTOs.UserProfileDto;
+using ProjectCV.DAL.DTOs.SkillUpdateDTO;
 using ProjectCV.ENTITY.Entities;
 
 namespace ProjectCV.WEBUI.Controllers
@@ -24,6 +24,32 @@ namespace ProjectCV.WEBUI.Controllers
         {
             var skills = _skillService.GetSkills();
             return View(skills);
+        }
+
+        public ActionResult Update(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Invalid skill ID.");
+            }
+            var skill = _skillService.GetSkills().ToList();
+            if (skill == null)
+            {
+                return NotFound("Skill not found.");
+            }
+            var skillDto = _mapper.Map<List<SkillUpdateDTO>>(skill);
+            return View(skillDto);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Update(SkillUpdateDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                var skill = _mapper.Map<Skill>(model);
+                _skillService.Update(skill);
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
     }
 }

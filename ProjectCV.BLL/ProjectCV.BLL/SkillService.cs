@@ -17,7 +17,11 @@ namespace ProjectCV.BLL
         }
         public List<Skill> GetSkills()
         {
-            return _skillDal.GetSkills();
+            return _skillDal.GetSkills().ToList();
+        }
+        public void Update(Skill UpdateSkill)
+        {
+            _skillDal.UpdateSkills(UpdateSkill);
         }
     }
 }

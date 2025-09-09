@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ProjectCV.DAL.DTOs.SkillUpdateDTO;
 using ProjectCV.DAL.DTOs.UserProfileDto;
 using ProjectCV.ENTITY.Entities;
 using System;

@@ -21,8 +21,9 @@ namespace ProjectCV.WEBUI.Controllers
         }
         public IActionResult Index()
         {
-            var user = _userProfileService.GetUserProfile();
-            return View(user);
+            //var user = _userProfileService.GetUserProfile();
+            //return View(user);
+            return View();
         }
 
         public ActionResult Update(int? id)
