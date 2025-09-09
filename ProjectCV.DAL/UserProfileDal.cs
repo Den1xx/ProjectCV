@@ -46,20 +46,7 @@ namespace ProjectCV.DAL
             return _context.SaveChanges();
         }
 
-
-        //public void Update(UserProfile updatedProfile)
-        //{
-        //    var existingProfile = _context.UserProfiles
-        //        .Include(up => up.SocialMedias)
-        //        .FirstOrDefault(up => up.Id == updatedProfile.Id);
-
-        //    if (existingProfile != null)
-        //    {
-        //        _mapper.Map(updatedProfile, existingProfile);
-
-        //        _context.SaveChanges();
-        //    }
-        //}
+        
 
 
 

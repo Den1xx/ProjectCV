@@ -20,5 +20,18 @@ namespace ProjectCV.DAL
             var result = _context.Skills.ToList();
             return result;
         }
+        public Skill GetSkillsById(int id)
+        {
+            return _context.Skills.FirstOrDefault(s => s.Id == id);
+        }
+        public int UpdateSkills (Skill UpdateSkill)
+        {
+            var skill = _context.Skills.FirstOrDefault(s => s.Id == UpdateSkill.Id);
+
+            skill.Name = UpdateSkill.Name;
+            skill.Rating = UpdateSkill.Rating;
+
+            return _context.SaveChanges();
+        }
     }
 }
