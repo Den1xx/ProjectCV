@@ -38,7 +38,7 @@ namespace ProjectCV.WEBUI.Controllers
             {
                 return NotFound("User not found.");
             }
-            var userProfileDto = _mapper.Map<UserProfileUpdateDTO>(UserProfile);
+            var userProfileDto = _mapper.Map<List<UserProfileUpdateDTO>>(UserProfile);
             return View(userProfileDto);
         }
 
