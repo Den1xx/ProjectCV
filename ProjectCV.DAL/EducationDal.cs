@@ -19,5 +19,26 @@ namespace ProjectCV.DAL
         {
             return _context.Educations.ToList();
         }
+
+        public List<Education> GetById(int id)
+        {
+            return _context.Educations.Where(x => x.Id == id).ToList();
+        }
+        
+        public int Update(Education eduUpdate)
+        {
+            var edu = _context.Educations.FirstOrDefault(x => x.Id == eduUpdate.Id);
+            if (edu != null)
+            {
+                edu.ShcoolName = eduUpdate.ShcoolName;
+                edu.StartDate = eduUpdate.StartDate;
+                edu.EndDate = eduUpdate.EndDate;
+                edu.Degree = eduUpdate.Degree;
+                edu.Text = eduUpdate.Text;
+                _context.SaveChanges();
+            }
+
+            return _context.SaveChanges();
+        }
     }
 }
