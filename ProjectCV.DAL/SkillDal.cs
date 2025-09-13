@@ -20,9 +20,10 @@ namespace ProjectCV.DAL
             var result = _context.Skills.ToList();
             return result;
         }
-        public Skill GetSkillsById(int id)
+        public List<Skill> GetSkillsById(List<int> ids)
         {
-            return _context.Skills.FirstOrDefault(s => s.Id == id);
+            return _context.Skills.Where(e=> ids.Contains(e.Id))
+                .ToList();
         }
         public int UpdateSkills (Skill UpdateSkill)
         {

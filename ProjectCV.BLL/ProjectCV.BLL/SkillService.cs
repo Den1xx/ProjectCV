@@ -19,6 +19,10 @@ namespace ProjectCV.BLL
         {
             return _skillDal.GetSkills().ToList();
         }
+        public List<Skill> GetSkillsById(List<int> ids)
+        {
+            return _skillDal.GetSkillsById(ids);
+        }
         public void Update(Skill UpdateSkill)
         {
             _skillDal.UpdateSkills(UpdateSkill);

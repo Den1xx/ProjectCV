@@ -20,11 +20,13 @@ namespace ProjectCV.DAL
             return _context.Educations.ToList();
         }
 
-        public List<Education> GetById(int id)
+        public List<Education> GetEducationsByIds(List<int> ids)
         {
-            return _context.Educations.Where(x => x.Id == id).ToList();
+            return _context.Educations
+                           .Where(e => ids.Contains(e.Id))
+                           .ToList();
         }
-        
+
         public int Update(Education eduUpdate)
         {
             var edu = _context.Educations.FirstOrDefault(x => x.Id == eduUpdate.Id);
