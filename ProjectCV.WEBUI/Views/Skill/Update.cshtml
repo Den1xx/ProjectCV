@@ -39,12 +39,12 @@
                 {                    
                     <div class="form-group">
                         <input type="hidden" asp-for="@Model[i].Id" />
-                        <label for="name">Name @Model[i]</label>
-                        <input type="text" asp-for="@Model[i].Name" class="form-control">
+                        <label>@(i + 1) - Skill </label>
+                        <input asp-for="@Model[i].Name" value="@Model[i].Name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Rating @Model[i]</label>
-                        <input type="number" asp-for="@Model[i].Rating" class="form-control">
+                        <label>@(i + 1) - Rating  </label>
+                        <input asp-for="@Model[i].Rating" value="@Model[i].Rating" class="form-control">
                     </div>
                 }                        
                 
