@@ -26,30 +26,41 @@ namespace ProjectCV.WEBUI.Controllers
             return View(skills);
         }
 
-        public ActionResult Update(int? id)
+        public ActionResult Update()
         {
-            if (id == null)
-            {
-                return BadRequest("Invalid skill ID.");
-            }
-            var skill = _skillService.GetSkills().ToList();
-            if (skill == null)
-            {
-                return NotFound("Skill not found.");
-            }
-            var skillDto = _mapper.Map<List<SkillUpdateDTO>>(skill);
-            return View(skillDto);
+            var skills = _skillService.GetSkills();
+            var skillDtos = _mapper.Map<List<SkillUpdateDTO>>(skills);
+            return View(skillDtos); 
+
+            //if (id == null)
+            //{
+            //    return BadRequest("Invalid skill ID.");
+            //}
+            //var skill = _skillService.GetSkills().ToList();
+            //if (skill == null)
+            //{
+            //    return NotFound("Skill not found.");
+            //}
+            //var skillDto = _mapper.Map<List<SkillUpdateDTO>>(skill);
+            //return View(skillDto);
         }
         [HttpPost]
-        public async Task<ActionResult> Update(SkillUpdateDTO model)
+        public async Task<ActionResult> Update(List<SkillUpdateDTO> models)
         {
             if (ModelState.IsValid)
             {
-                var skill = _mapper.Map<Skill>(model);
-                _skillService.Update(skill);
-                return RedirectToAction("Index");
+                foreach (var m in models)
+                {
+                    var skill = _mapper.Map<Skill>(m);
+                    _skillService.Update(skill);
+
+                }
+                return RedirectToAction("Update");
+
             }
-            return View(model);
+            return View(models);
         }
+
+
     }
 }
