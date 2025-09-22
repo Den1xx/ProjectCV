@@ -25,7 +25,7 @@ namespace ProjectCV.BLL
         }
         public void Update(Skill UpdateSkill)
         {
-            _skillDal.UpdateSkills(UpdateSkill);
+            _skillDal.Update(UpdateSkill);
         }
     }
 }

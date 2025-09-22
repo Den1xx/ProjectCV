@@ -25,7 +25,7 @@ namespace ProjectCV.DAL
             return _context.Skills.Where(e=> ids.Contains(e.Id))
                 .ToList();
         }
-        public int UpdateSkills (Skill UpdateSkill)
+        public int Update (Skill UpdateSkill)
         {
             var skill = _context.Skills.FirstOrDefault(s => s.Id == UpdateSkill.Id);
 
