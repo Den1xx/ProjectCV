@@ -30,33 +30,33 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form asp-action="Update" asp-controller="UserProfile"method="post" enctype="multipart/form-data">
+        <form asp-action="Update" asp-controller="UserProfile" method="post" enctype="multipart/form-data">
             @* user profile section *@
             <input type="hidden" />
             <div class="card-body">
 
                 <div class="form-group">
                     <input type="hidden" asp-for="Id" />
-                    <label for="exampleInputEmail1">Name</label>
-                    <input type="text" asp-for="Name" class="form-control" placeholder="Type your name">
+                    <label asp-for="Name" >Name</label>
+                    <input type="text" asp-for="Name" class="form-control" value="@Model.Name" placeholder="Type your name">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Surname</label>
-                    <input type="text" asp-for="Surname" class="form-control" id="surname" placeholder="Type your name">
+                    <label>Surname</label>
+                    <input type="text" asp-for="Surname" value="@Model.Surname" class="form-control" placeholder="Type your name">
                 </div>
                     @for (int i=0; i< Model.SocialMedias.Count;i++)
                     {
                     <div class="form-group">
                         <label>Social Media</label>
-                        <input asp-for="SocialMedias[i].Name" class="form-control">
+                        <input asp-for="SocialMedias[i].Name" value=" @Model.SocialMedias[i].Name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Social Media</label>
-                        <input asp-for="SocialMedias[i].Url" class="form-control">
+                        <input asp-for="SocialMedias[i].Url" value="@Model.SocialMedias[i].Url" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Social Media</label>
-                        <input asp-for="SocialMedias[i].Icon" class="form-control">
+                        <input asp-for="SocialMedias[i].Icon" value="@Model.SocialMedias[i].Icon" class="form-control">
                     </div>
                     }
               
@@ -65,7 +65,7 @@
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" name="profileFile" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            <label class="custom-file-label" >Choose file</label>
                         </div>
                         <div class="input-group-append">
                             <span class="input-group-text">Upload</span>
@@ -76,7 +76,7 @@
                     <label for="exampleInputFile">Background Image</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="backgroundFile" id="exampleInputFile">
+                            <input type="file" class="custom-file-input" name="backgroundFile" >
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                         </div>
                         <div class="input-group-append">
