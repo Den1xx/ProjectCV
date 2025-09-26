@@ -32,12 +32,13 @@
         <!-- form start -->
         <form asp-action="Update" asp-controller="UserProfile"method="post" enctype="multipart/form-data">
             @* user profile section *@
-            <input type="hidden" 
+            <input type="hidden" />
             <div class="card-body">
 
                 <div class="form-group">
+                    <input type="hidden" asp-for="Id" />
                     <label for="exampleInputEmail1">Name</label>
-                    <input type="text" asp-for="Name" class="form-control" id="name" placeholder="Type your name">
+                    <input type="text" asp-for="Name" class="form-control" placeholder="Type your name">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Surname</label>
@@ -46,16 +47,16 @@
                     @for (int i=0; i< Model.SocialMedias.Count;i++)
                     {
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Social Media</label>
-                        <input asp-for="SocialMedias[i].Name" class="form-control" id="socialMedia">
+                        <label>Social Media</label>
+                        <input asp-for="SocialMedias[i].Name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Social Media</label>
-                        <input asp-for="SocialMedias[i].Url" class="form-control" id="socialMedia">
+                        <label>Social Media</label>
+                        <input asp-for="SocialMedias[i].Url" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Social Media</label>
-                        <input asp-for="SocialMedias[i].Icon" class="form-control" id="socialMedia">
+                        <label>Social Media</label>
+                        <input asp-for="SocialMedias[i].Icon" class="form-control">
                     </div>
                     }
               

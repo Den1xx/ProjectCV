@@ -19,5 +19,13 @@ namespace ProjectCV.BLL
         {
             return _educationDal.GetEducation();
         }
+        public List<Education> GetEducationsByIds(List<int> ids)
+        {
+            return _educationDal.GetEducationsByIds(ids);
+        }
+        public int Update(Education eduUpdate)
+        {
+            return _educationDal.Update(eduUpdate);
+        }
     }
 }

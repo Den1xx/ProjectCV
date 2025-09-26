@@ -37,9 +37,8 @@ namespace ProjectCV.DAL
                 edu.EndDate = eduUpdate.EndDate;
                 edu.Degree = eduUpdate.Degree;
                 edu.Text = eduUpdate.Text;
-                _context.SaveChanges();
+                
             }
-
             return _context.SaveChanges();
         }
     }

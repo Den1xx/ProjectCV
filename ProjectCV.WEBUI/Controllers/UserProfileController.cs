@@ -17,6 +17,7 @@ namespace ProjectCV.WEBUI.Controllers
             {
                 cfg.CreateMap<UserProfileUpdateDTO, UserProfile>();
                 cfg.CreateMap<UserProfile, UserProfileUpdateDTO>();
+                
             }).CreateMapper();
         }
         public IActionResult Index()
@@ -38,7 +39,7 @@ namespace ProjectCV.WEBUI.Controllers
             {
                 return NotFound("User not found.");
             }
-            var userProfileDto = _mapper.Map<List<UserProfileUpdateDTO>>(UserProfile);
+            var userProfileDto = _mapper.Map<UserProfileUpdateDTO>(UserProfile);
             return View(userProfileDto);
         }
 

@@ -22,7 +22,8 @@ namespace ProjectCV.DAL
         }
         public List<Skill> GetSkillsById(List<int> ids)
         {
-            return _context.Skills.Where(e=> ids.Contains(e.Id))
+            return _context.Skills
+                .Where(e=> ids.Contains(e.Id))
                 .ToList();
         }
         public int Update (Skill UpdateSkill)
