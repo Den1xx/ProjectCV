@@ -42,19 +42,19 @@
                         <input asp-for="@Model[i].ShcoolName" value="@Model[i].ShcoolName" class="form-control">                
                 <div class="form-group">
                     <label>Start Date  </label>
-                            <input asp-for="@Model[i].StartDate" value="@Model[i].StartDate.ToString("MM-dd-yyyy")" class="form-control">
+                    <input asp-for="@Model[i].StartDate" value="@Model[i].StartDate.ToString("MM-dd-yyyy")" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>End Date  </label>
-                    <input asp-for="Rating" class="form-control">
+                    <input asp-for="@Model[i].EndDate" value="@Model[i].EndDate.ToString("MM-dd-yyyy")" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Degree </label>
-                    <input asp-for="Rating" class="form-control">
+                    <input asp-for="Degree" value="@Model[i].Degree" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>Text  </label>
-                    <input asp-for="Rating" class="form-control">
+                    <label>Text </label>
+                    <input asp-for="Text" value="@Model[i].Text" class="form-control">
                 </div>     
                     }
                                
