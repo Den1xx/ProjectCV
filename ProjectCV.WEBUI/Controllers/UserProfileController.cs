@@ -47,7 +47,10 @@ namespace ProjectCV.WEBUI.Controllers
         public async Task<ActionResult> Update(UserProfileUpdateDTO model, IFormFile profileFile, IFormFile backgroundFile)
         {
             ModelState.Remove("ProfileImage");
+            ModelState.Remove("profileFile");
             ModelState.Remove("BackgroundImage");
+            ModelState.Remove("BackgroundFile");
+
             if (ModelState.IsValid)
             {
                 string newFileName = profileFile.FileName;
@@ -77,7 +80,8 @@ namespace ProjectCV.WEBUI.Controllers
 
                 return RedirectToAction("Index");
             }
-
+            var UserProfile = _userProfileService.GetUserProfile();
+            ViewBag.UserProfileSocial = UserProfile.SocialMedias;
             return View(model);
         }
 

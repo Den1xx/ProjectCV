@@ -38,13 +38,13 @@
                 @for (int i = 0;  i < Model.Count; i++)
                 {                    
                     <div class="form-group">
-                        <input type="hidden" name="Id" value="Model[i].Id" />
+                        <input type="hidden" name="[@i].Id" value="@Model[i].Id" />
                         <label> @(i + 1) - Skill </label>
-                        <input asp-for="Model[i].Name"  class="form-control">
+                        <input name="[@i].Name" type="text" value="@Model[i].Name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>@(i + 1) - Rating  </label>
-                        <input asp-for="Model[i].Rating"  value="@Model[i].Rating" class="form-control">
+                        <input name="[@i].Rating" type="number" value="@Model[i].Rating" class="form-control">
                     </div>
                 }                        
                 
