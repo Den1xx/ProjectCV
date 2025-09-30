@@ -42,17 +42,17 @@
                 </div>
                 <div class="form-group">
                     <label>Surname</label>
-                    <input type="text" asp-for="Surname"  class="form-control" placeholder="Type your name">
+                    <input type="text" name="Surname"  class="form-control" placeholder="Type your name">
                 </div>
                     @for (int i=0; i< Model.SocialMedias.Count;i++)
                     {
                     <div class="form-group">
                         <label>Social Media</label>
-                        <input asp-for="SocialMedias[i].Name" value=" @Model.SocialMedias[i].Name" class="form-control">
+                        <input asp-for="SocialMedias[i].Name" name="[@i].Name" value=" @Model.SocialMedias[i].Name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Social Media</label>
-                        <input asp-for="SocialMedias[i].Url" value="@Model.SocialMedias[i].Url" class="form-control">
+                        <input asp-for="SocialMedias[i].Url" name="[@i].Url" value="@Model.SocialMedias[i].Url" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Social Media</label>
