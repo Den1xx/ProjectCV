@@ -32,5 +32,20 @@ namespace ProjectCV.WEBUI.Controllers
             var educationDtos = _mapper.Map<List<EducationUpdateDTO>>(education);
             return View(educationDtos);
         }
+        [HttpPost]
+        public async Task<ActionResult> Update(List<EducationUpdateDTO> models)
+        {
+            if (ModelState.IsValid)
+            {
+                foreach (var item in models)
+                {
+                    var educations = _mapper.Map<Education>(item);
+                    _educationService.Update(educations);
+                }
+                return RedirectToAction("Update");
+            }
+            
+            return View(models);
+        }
     }
 }

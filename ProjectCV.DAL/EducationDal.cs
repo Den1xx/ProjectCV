@@ -32,7 +32,7 @@ namespace ProjectCV.DAL
             var edu = _context.Educations.FirstOrDefault(x => x.Id == eduUpdate.Id);
             if (edu != null)
             {
-                edu.ShcoolName = eduUpdate.ShcoolName;
+                edu.SchoolName = eduUpdate.SchoolName;
                 edu.StartDate = eduUpdate.StartDate;
                 edu.EndDate = eduUpdate.EndDate;
                 edu.Degree = eduUpdate.Degree;

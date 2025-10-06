@@ -10,7 +10,7 @@ namespace ProjectCV.ENTITY.Entities
     public class Education
     {
         public int Id { get; set; }
-        public string ShcoolName { get; set; }
+        public string SchoolName { get; set; }
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 

@@ -5,7 +5,7 @@
 @foreach (var edu in Model)
 {
     <div class="resume-item">
-        <h4>@edu.ShcoolName</h4>
+        <h4>@edu.SchoolName</h4>
         <h5>@edu.StartDate.ToString("MMMM yyyy", new CultureInfo("en-US")) - @edu.EndDate.ToString("MMMM yyyy", new CultureInfo("en-US"))</h5>
         <p><em>@edu.Degree</em></p>
         <p>@edu.Text</p>

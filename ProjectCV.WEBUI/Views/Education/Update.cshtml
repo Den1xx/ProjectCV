@@ -37,24 +37,24 @@
                 <div class="form-group">
                     @for (int i = 0; i < Model.Count; i++)
                     {
-                        <input type="hidden" asp-for="@Model[i].Id" />
+                        <input type="hidden" name="[@i].Id" value="@Model[i].Id" asp-for="@Model[i].Id" />
                         <label > School Name </label>
-                        <input asp-for="@Model[i].ShcoolName" value="@Model[i].ShcoolName" class="form-control">                
+                        <input asp-for="@Model[i].SchoolName" name="[@i].SchoolName" type="text" value="@Model[i].SchoolName" class="form-control">                
                 <div class="form-group">
                     <label>Start Date  </label>
-                    <input asp-for="@Model[i].StartDate" value="@Model[i].StartDate.ToString("MM-dd-yyyy")" class="form-control">
+                    <input asp-for="@Model[i].StartDate" name="[@i].StartDate" type="datetime" value="@Model[i].StartDate.ToString("MM-dd-yyyy")" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>End Date  </label>
-                    <input asp-for="@Model[i].EndDate" value="@Model[i].EndDate.ToString("MM-dd-yyyy")" class="form-control">
+                    <input asp-for="@Model[i].EndDate" name="[@i].EndDate" type="datetime" value="@Model[i].EndDate.ToString("MM-dd-yyyy")" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Degree </label>
-                    <input asp-for="Degree" value="@Model[i].Degree" class="form-control">
+                    <input asp-for="Degree" name="[@i].Degree" value="@Model[i].Degree" type="text" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Text </label>
-                    <input asp-for="Text" value="@Model[i].Text" class="form-control">
+                    <input asp-for="Text" name="[@i].Text" type="text" value="@Model[i].Text" class="form-control">
                 </div>     
                     }
                                

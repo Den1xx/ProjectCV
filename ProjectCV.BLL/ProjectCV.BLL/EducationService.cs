@@ -23,9 +23,9 @@ namespace ProjectCV.BLL
         {
             return _educationDal.GetEducationsByIds(ids);
         }
-        public int Update(Education eduUpdate)
+        public void Update(Education eduUpdate)
         {
-            return _educationDal.Update(eduUpdate);
+            _educationDal.Update(eduUpdate);
         }
     }
 }
