@@ -39,11 +39,11 @@
                 {                    
                     <div class="form-group">
                         <input type="hidden" name="[@i].Id" value="@Model[i].Id" />
-                        <label> @(i + 1) - Skill </label>
+                        <label> <span style="font-weight:bold;color:orangered"> @(i + 1) - Skill </span>  </label>
                         <input name="[@i].Name" type="text" value="@Model[i].Name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>@(i + 1) - Rating  </label>
+                        <label> <span style="font-weight:bold;color:gold">Rating</span></label>
                         <input name="[@i].Rating" type="number" value="@Model[i].Rating" class="form-control">
                     </div>
                 }                        
