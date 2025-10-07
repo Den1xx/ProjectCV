@@ -43,6 +43,47 @@ namespace ProjectCV.WEBUI.Controllers
             return View(userProfileDto);
         }
 
+        //[HttpPost]
+        //public async Task<ActionResult> Update(UserProfileUpdateDTO model, IFormFile profileFile, IFormFile backgroundFile)
+        //{
+        //    ModelState.Remove("ProfileImage");
+        //    ModelState.Remove("profileFile");
+        //    ModelState.Remove("BackgroundImage");
+        //    ModelState.Remove("BackgroundFile");
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        string newFileName = profileFile.FileName;
+        //        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\img", newFileName);
+
+        //        using (var stream = new FileStream(path, FileMode.Create))
+        //        {
+        //            await profileFile.CopyToAsync(stream);
+        //        }
+
+        //        model.ProfileImage = newFileName;
+
+
+        //        string newFileName2 = backgroundFile.FileName;
+        //        var path2 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\img", newFileName2);
+
+        //        using (var stream = new FileStream(path2, FileMode.Create))
+        //        {
+        //            await backgroundFile.CopyToAsync(stream);
+        //        }
+
+        //        model.BackgroundImage = newFileName2;
+
+        //        var userProfile = _mapper.Map<UserProfile>(model);
+
+        //        _userProfileService.Update(userProfile);
+
+        //        return RedirectToAction("Index");
+        //    }
+        //    var UserProfile = _userProfileService.GetUserProfile();
+        //    ViewBag.UserProfileSocial = UserProfile.SocialMedias;
+        //    return View(model);
+        //}
         [HttpPost]
         public async Task<ActionResult> Update(UserProfileUpdateDTO model, IFormFile profileFile, IFormFile backgroundFile)
         {
@@ -53,37 +94,57 @@ namespace ProjectCV.WEBUI.Controllers
 
             if (ModelState.IsValid)
             {
-                string newFileName = profileFile.FileName;
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\img", newFileName);
-
-                using (var stream = new FileStream(path, FileMode.Create))
+                // 📸 Profil resmi güncelleme
+                if (profileFile != null && profileFile.Length > 0)
                 {
-                    await profileFile.CopyToAsync(stream);
+                    string newFileName = profileFile.FileName;
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\img", newFileName);
+
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await profileFile.CopyToAsync(stream);
+                    }
+
+                    model.ProfileImage = newFileName;
+                }
+                else
+                {
+                    // Yeni dosya yoksa mevcut resmi koru
+                    var existingUser = _userProfileService.GetUserProfile();
+                    model.ProfileImage = existingUser.ProfileImage;
                 }
 
-                model.ProfileImage = newFileName;
-
-
-                string newFileName2 = backgroundFile.FileName;
-                var path2 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\img", newFileName2);
-
-                using (var stream = new FileStream(path2, FileMode.Create))
+                // 🖼️ Arka plan resmi güncelleme
+                if (backgroundFile != null && backgroundFile.Length > 0)
                 {
-                    await backgroundFile.CopyToAsync(stream);
-                }
+                    string newFileName2 = backgroundFile.FileName;
+                    var path2 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\img", newFileName2);
 
-                model.BackgroundImage = newFileName2;
+                    using (var stream = new FileStream(path2, FileMode.Create))
+                    {
+                        await backgroundFile.CopyToAsync(stream);
+                    }
+
+                    model.BackgroundImage = newFileName2;
+                }
+                else
+                {
+                    // Yeni dosya yoksa mevcut arka planı koru
+                    var existingUser = _userProfileService.GetUserProfile();
+                    model.BackgroundImage = existingUser.BackgroundImage;
+                }
 
                 var userProfile = _mapper.Map<UserProfile>(model);
-
                 _userProfileService.Update(userProfile);
 
                 return RedirectToAction("Index");
             }
-            var UserProfile = _userProfileService.GetUserProfile();
-            ViewBag.UserProfileSocial = UserProfile.SocialMedias;
+
+            var userProfileView = _userProfileService.GetUserProfile();
+            ViewBag.UserProfileSocial = userProfileView.SocialMedias;
             return View(model);
         }
+
 
     }
 }

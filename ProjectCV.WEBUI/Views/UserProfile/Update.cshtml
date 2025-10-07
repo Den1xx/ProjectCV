@@ -44,19 +44,19 @@
                     <label>Surname</label>
                     <input type="text" name="Surname" value="@Model.Surname" class="form-control" placeholder="Type your name">
                 </div>
-                    @for (int i=0; i< Model.SocialMedias.Count;i++)
+                    @for (int i=0; i< Model.SocialMedias.Count; i++)
                     {
                     <div class="form-group">
                         <label>Social Media</label>
-                        <input name="[@i].Name" type="text" value="@Model.SocialMedias[i].Name" class="form-control">
+                        <input name="SocialMedias[@i].Name" value="@Model.SocialMedias[i].Name" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Social Media</label>
-                        <input asp-for="SocialMedias[i].Url" name="[@i].Url" value="@Model.SocialMedias[i].Url" class="form-control">
+                        <label>Social Media URL</label>
+                        <input name="SocialMedias[@i].Url" type="text" value="@Model.SocialMedias[i].Url" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Social Media</label>
-                        <input asp-for="SocialMedias[i].Icon" value="@Model.SocialMedias[i].Icon" class="form-control">
+                        <label>Social Media Icon</label>
+                        <input name="SocialMedias[@i].Icon" type="text" value="@Model.SocialMedias[i].Icon" class="form-control">
                     </div>
                     }
               
