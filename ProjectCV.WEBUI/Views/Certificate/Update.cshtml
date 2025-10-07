@@ -1,0 +1,67 @@
+﻿@using ProjectCV.DAL.DTOs.CertificatesUpdateDTO
+@model List<CertificatesUpdateDTO>;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">CV Maker Panel</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard v2</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Certificates Update</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form asp-action="Update" asp-controller="Education" method="post">
+
+            <input type="hidden" />
+            <div class="card-body">
+                <div class="form-group">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <input type="hidden" name="[@i].Id" value="@Model[i].Id" asp-for="@Model[i].Id" />
+                        <label> <span style="font-weight:900; color: orangered"> @(i + 1)- School Name </span></label>
+                        <input asp-for="@Model[i].Name" name="[@i].Name" type="text" value="@Model[i].Name" class="form-control">
+                        <div class="form-group">
+                            <label>Start Date  </label>
+                            <input asp-for="@Model[i].Institution" name="[@i].Institution" type="text" value="@Model[i].Institution" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>End Date  </label>
+                            <input asp-for="@Model[i].EndDate" name="[@i].StartDate" type="datetime" value="@Model[i].StartDate.ToString("dd-MM-yyyy")" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Degree </label>
+                            <input asp-for="Degree" name="[@i].EndDate" value="@Model[i].EndDate.ToString("dd-MM-yyyy")" type="text" class="form-control">
+                        </div>
+                        
+                    }
+
+
+                </div>
+
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+        </form>
+    </div>
+</div>

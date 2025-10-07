@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ProjectCV.DAL.DTOs.CertificatesUpdateDTO;
 using ProjectCV.DAL.DTOs.EducationUpdateDTO;
 using ProjectCV.DAL.DTOs.SkillUpdateDTO;
 using ProjectCV.DAL.DTOs.UserProfileDto;
@@ -20,6 +21,7 @@ namespace ProjectCV.DAL.Mapping
             CreateMap<SocialMediaUpdateDTO,SocialMedia>().ReverseMap();
             CreateMap<SkillUpdateDTO,Skill>().ReverseMap();
             CreateMap<EducationUpdateDTO, Education>().ReverseMap();
+            CreateMap<CertificatesUpdateDTO, Certificate>().ReverseMap();
 
 
         }

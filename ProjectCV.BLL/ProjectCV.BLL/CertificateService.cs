@@ -19,6 +19,11 @@ namespace ProjectCV.BLL
         {
             return _certificateDal.GetAllCertificates().ToList();
         }
-        
+        public void Update(Certificate certUpdate)
+        {
+            _certificateDal.Update(certUpdate);
+        }
+
+
     }
 }

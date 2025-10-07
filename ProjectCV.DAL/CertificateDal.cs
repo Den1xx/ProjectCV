@@ -19,5 +19,18 @@ namespace ProjectCV.DAL
         {
             return _context.Certificates.ToList();
         }
+        public int Update(Certificate certUpdate)
+        {
+            var certificate = _context.Certificates.FirstOrDefault(x => x.Id == certUpdate.Id);
+            if (certificate != null)
+            {
+                certificate.Name = certUpdate.Name;
+                certificate.Institution = certUpdate.Institution;
+                certificate.StartDate = certUpdate.StartDate;
+                certificate.EndDate = certUpdate.EndDate;
+
+            }
+            return _context.SaveChanges();
+        }
     }
 }
