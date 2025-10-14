@@ -19,5 +19,9 @@ namespace ProjectCV.BLL
         {
             return _experienceDal.GetExperiences().ToList();
         }
+        public int Update(Experiance experience)
+        {
+            return _experienceDal.Update(experience);
+        }
     }
 }

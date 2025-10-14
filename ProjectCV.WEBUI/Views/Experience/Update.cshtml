@@ -1,6 +1,5 @@
-﻿@using ProjectCV.DAL.DTOs.CertificatesUpdateDTO
-@model List<CertificatesUpdateDTO>;
-
+﻿@using ProjectCV.DAL.DTOs.ExperienceUpdateDTO
+@model List<ExperienceUpdateDTO>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -26,7 +25,7 @@
     <!-- Main content -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Certificates Update</h3>
+            <h3 class="card-title">Experience Update</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -38,21 +37,29 @@
                     @for (int i = 0; i < Model.Count; i++)
                     {
                         <input type="hidden" name="[@i].Id" value="@Model[i].Id" asp-for="@Model[i].Id" />
-                        <label> <span style="font-weight:900; color: orangered"> @(i + 1)- Institution Name </span></label>
-                        <input asp-for="@Model[i].Name" name="[@i].Name" type="text" value="@Model[i].Name" class="form-control">
-                        <div class="form-group">
-                            <label><span style="font-weight:bold;color:dodgerblue">Institution Name</span></label>
+                        <label> <span style="font-weight:900; color: orangered"> @(i + 1)- Company Name </span></label>
+                        <input asp-for="@Model[i].CompanyName" name="[@i].CompanyName" type="text" value="@Model[i].CompanyName" class="form-control">
+                        @* <div class="form-group">
+                            <label><span style="font-weight:bold;color:dodgerblue">Start Date</span></label>
                             <input asp-for="@Model[i].Institution" name="[@i].Institution" type="text" value="@Model[i].Institution" class="form-control">
+                        </div> *@
+                        <div class="form-group">
+                            <label> <span style="font-weight:bold;color:dodgerblue">Start Date</span></label>
+                            <input name="[@i].StartDate" type="datetime" value="@Model[i].StartDate.ToString("dd-MM-yyyy")" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label> <span style="font-weight:bold;color:red">Start Date</span></label>
-                            <input asp-for="@Model[i].EndDate" name="[@i].StartDate" type="datetime" value="@Model[i].StartDate.ToString("dd-MM-yyyy")" class="form-control">
+                            <label> <span style="font-weight:bold;color:red">End Date</span></label>
+                            <input name="[@i].EndDate" type="datetime" value="@Model[i].EndDate.ToString("dd-MM-yyyy")" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Degree </label>
-                            <input name="[@i].EndDate" value="@Model[i].EndDate.ToString("dd-MM-yyyy")" type="text" class="form-control">
+                            <label> <span style="font-weight:bold;color:greenyellow ">Title </span></label>
+                            <input name="[@i].Title" value="@Model[i].Title" type="text" class="form-control">
                         </div>
-                        
+                        <div class="form-group">
+                            <label>Text </label>
+                            <input name="[@i].Text" value="@Model[i].Text" type="text" class="form-control">
+                        </div>
+
                     }
 
 

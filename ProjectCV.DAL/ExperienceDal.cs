@@ -19,5 +19,18 @@ namespace ProjectCV.DAL
         {
             return _context.Experiances.ToList();
         }
+        public int Update(Experiance experience)
+        {
+            var exp = _context.Experiances.FirstOrDefault(x => x.Id == experience.Id);
+            if (exp != null)
+            {
+                exp.CompanyName = experience.CompanyName;
+                exp.StartDate = experience.StartDate;
+                exp.EndDate = experience.EndDate;
+                exp.Title = experience.Title;
+                exp.Text = experience.Text;
+            }
+            return _context.SaveChanges();
+        }
     }
 }
