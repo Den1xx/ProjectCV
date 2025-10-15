@@ -15,11 +15,11 @@ namespace ProjectCV.DAL
         {
             _context = new DataContext();
         }
-        public List<Experiance> GetExperiences()
+        public List<Experience> GetExperiences()
         {
             return _context.Experiances.ToList();
         }
-        public int Update(Experiance experience)
+        public int Update(Experience experience)
         {
             var exp = _context.Experiances.FirstOrDefault(x => x.Id == experience.Id);
             if (exp != null)

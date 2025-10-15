@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectCV.ENTITY.Entities
 {
-    public class Experiance
+    public class Experience
     {
         public int Id { get; set; }
 

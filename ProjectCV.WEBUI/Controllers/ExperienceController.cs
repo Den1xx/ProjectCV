@@ -15,8 +15,8 @@ namespace ProjectCV.WEBUI.Controllers
             _experienceService = new ExperienceService();
             _mapper = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ExperienceUpdateDTO, Experiance>();
-                cfg.CreateMap<Experiance, ExperienceUpdateDTO>();
+                cfg.CreateMap<ExperienceUpdateDTO, Experience>();
+                cfg.CreateMap<Experience, ExperienceUpdateDTO>();
             }).CreateMapper();
         }
         public IActionResult Index()
@@ -28,6 +28,20 @@ namespace ProjectCV.WEBUI.Controllers
             var experiences = _experienceService.GetExperiences();
             var experienceDto = _mapper.Map<List<ExperienceUpdateDTO>>(experiences);
             return View(experienceDto);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Update(List<ExperienceUpdateDTO> experiences)
+        {
+            if (ModelState.IsValid)
+            {
+                foreach (var exp in experiences)
+                {
+                    var experience = _mapper.Map<Experience>(exp);
+                    _experienceService.Update(experience);
+                }
+                return RedirectToAction("Update");
+            }
+            return View(experiences);
         }
     }
 }

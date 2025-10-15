@@ -17,7 +17,7 @@ namespace ProjectCV.DAL.Context
         }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
-        public DbSet<Experiance> Experiances { get; set; }
+        public DbSet<Experience> Experiances { get; set; }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Education> Educations { get; set; }

@@ -15,11 +15,11 @@ namespace ProjectCV.BLL
         {
             _experienceDal = new ExperienceDal();
         }
-        public List<Experiance> GetExperiences()
+        public List<Experience> GetExperiences()
         {
             return _experienceDal.GetExperiences().ToList();
         }
-        public int Update(Experiance experience)
+        public int Update(Experience experience)
         {
             return _experienceDal.Update(experience);
         }
