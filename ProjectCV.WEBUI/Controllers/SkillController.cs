@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ProjectCV.BLL;
+using ProjectCV.DAL.DTOs.SkillDTO;
 using ProjectCV.DAL.DTOs.SkillUpdateDTO;
 using ProjectCV.ENTITY.Entities;
 
@@ -59,6 +60,21 @@ namespace ProjectCV.WEBUI.Controllers
 
             }
             return View(models);
+        }
+        
+        public async Task<ActionResult> Create(SkillCreateDTO skill)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                    var newskill = _mapper.Map<Skill>(skill);
+                    _skillService.Update(newskill);
+
+                
+                return RedirectToAction("Update");
+
+            }
+            return View(skill);
         }
 
 
