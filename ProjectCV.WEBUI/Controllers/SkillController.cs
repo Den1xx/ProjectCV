@@ -19,6 +19,8 @@ namespace ProjectCV.WEBUI.Controllers
             {
                 cfg.CreateMap<SkillUpdateDTO, Skill>();
                 cfg.CreateMap<Skill, SkillUpdateDTO>();
+                cfg.CreateMap<SkillCreateDTO, Skill>();
+                cfg.CreateMap<Skill, SkillCreateDTO>();
             }).CreateMapper();
         }
         public IActionResult Index()
@@ -61,20 +63,30 @@ namespace ProjectCV.WEBUI.Controllers
             }
             return View(models);
         }
-        
-        public async Task<ActionResult> Create(SkillCreateDTO skill)
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(SkillCreateDTO skillCreateDTO)
         {
             if (ModelState.IsValid)
             {
                 
-                    var newskill = _mapper.Map<Skill>(skill);
-                    _skillService.Update(newskill);
+                    var newskill = _mapper.Map<Skill>(skillCreateDTO);
+                    _skillService.Create(newskill);
 
                 
                 return RedirectToAction("Update");
 
             }
-            return View(skill);
+            return View();
+        }
+        public IActionResult Delete(int id)
+        {
+            var skill = _skillService.Find(id);
+            _skillService.Delete(skill);
+            return RedirectToAction("Update");
         }
 
 

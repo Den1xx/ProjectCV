@@ -1,8 +1,9 @@
-﻿@using ProjectCV.DAL.DTOs.SkillUpdateDTO
+﻿@using ProjectCV.DAL.DTOs.SkillDTO
+@model SkillCreateDTO
 
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <div class="content-wrapper">
@@ -26,7 +27,7 @@
     <!-- Main content -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Skills Update</h3>
+            <h3 class="card-title">Skills Create</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -39,11 +40,11 @@
                     <div class="form-group">
                         <input type="hidden" />
                         <label> <span style="font-weight:bold;color:orangered"> Skill </span>  </label>
-                        <input  type="text" class="form-control">
+                        <input name="Name" type="text" value="@Model?.Name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label> <span style="font-weight:bold;color:gold">Rating</span></label>
-                        <input type="number" class="form-control">
+                        <input name="Rating" type="number" value="@Model?.Rating" class="form-control">
                     </div>
                 
 

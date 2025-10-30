@@ -27,5 +27,21 @@ namespace ProjectCV.BLL
         {
             _skillDal.Update(UpdateSkill);
         }
+        public void Create(Skill createSkill)
+        {
+            _skillDal.Create(createSkill);
+        }
+        public Skill Find(int id)
+        {
+           return _skillDal.Find(id);
+        }
+        public void Delete(Skill entity)
+        {
+            var skill = _skillDal.Find(entity.Id);
+            if (skill != null)
+            {
+                _skillDal.Delete(skill);
+            }
+        }
     }
 }

@@ -23,10 +23,10 @@ namespace ProjectCV.DAL
         public List<Skill> GetSkillsById(List<int> ids)
         {
             return _context.Skills
-                .Where(e=> ids.Contains(e.Id))
+                .Where(e => ids.Contains(e.Id))
                 .ToList();
         }
-        public int Update (Skill UpdateSkill)
+        public int Update(Skill UpdateSkill)
         {
             var skill = _context.Skills.FirstOrDefault(s => s.Id == UpdateSkill.Id);
 
@@ -34,6 +34,19 @@ namespace ProjectCV.DAL
             skill.Rating = UpdateSkill.Rating;
 
             return _context.SaveChanges();
+        }
+        public int Create(Skill UpdateSkill)
+        {
+            return _context.Skills.Add(UpdateSkill).Context.SaveChanges();
+        }
+        public Skill Find(int id)
+        {
+             return _context.Skills.Find(id);
+        }
+        public void Delete(Skill entity)
+        {
+            _context.Skills.Remove(entity);
+            _context.SaveChanges();
         }
     }
 }
