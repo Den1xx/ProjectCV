@@ -86,6 +86,7 @@ namespace ProjectCV.WEBUI.Controllers
         {
             var skill = _skillService.Find(id);
             _skillService.Delete(skill);
+            TempData["SuccessMessage"] = "Skill has been successfully deleted";
             return RedirectToAction("Update");
         }
 

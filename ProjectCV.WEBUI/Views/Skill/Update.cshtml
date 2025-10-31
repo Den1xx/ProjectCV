@@ -26,7 +26,18 @@
     <!-- Main content -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Skills Update</h3>
+            <h3 class="card-title">Skills Update</h3>            
+
+        </div>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        <div class="column">           
+            <a href="~/Skill/Create" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i> Create a New Skill </a>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -41,7 +52,7 @@
                         <input type="hidden" name="[@i].Id" value="@Model[i].Id" />
 
                         <label> <span style="font-weight:bold;color:orangered"> @(i + 1) - Skill </span>  </label>
-                        <a href="~/Skill/Delete?id=@Model[i].Id" class="btn btn-danger btn-sm"> <i class="fas fa-trash-alt"></i> Sil </a>
+                        <a href="~/Skill/Delete?id=@Model[i].Id" style="font-size: 0.8rem; " class="btn btn-danger btn-sm px-2 py-0 ms-2"> <i class="fas fa-trash-alt"></i> Delete Skill </a>
 
                         <input name="[@i].Name" type="text" value="@Model[i].Name" class="form-control">
                     </div>
