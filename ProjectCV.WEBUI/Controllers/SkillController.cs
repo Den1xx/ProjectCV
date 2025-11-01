@@ -76,15 +76,24 @@ namespace ProjectCV.WEBUI.Controllers
                     var newskill = _mapper.Map<Skill>(skillCreateDTO);
                     _skillService.Create(newskill);
 
-                
+                TempData["SuccessMessage"] = "Skill has been successfully updated!";
                 return RedirectToAction("Update");
 
             }
-            return View();
+            else
+            {
+                TempData["ErrorMessage"] = "Skill rating can not be greater than 100.";
+
+            }
+            return View(skillCreateDTO);
         }
         public IActionResult Delete(int id)
         {
             var skill = _skillService.Find(id);
+            if (skill == null)
+            {
+                return NotFound();
+            }
             _skillService.Delete(skill);
             TempData["SuccessMessage"] = "Skill has been successfully deleted";
             return RedirectToAction("Update");
