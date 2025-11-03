@@ -26,6 +26,11 @@ namespace ProjectCV.DAL
                            .Where(e => ids.Contains(e.Id))
                            .ToList();
         }
+        public int Create(Education edu)
+        {
+            _context.Educations.Add(edu);
+            return _context.SaveChanges();
+        }
 
         public int Update(Education eduUpdate)
         {
@@ -40,6 +45,15 @@ namespace ProjectCV.DAL
                 
             }
             return _context.SaveChanges();
+        }
+        public Education Find(int id)
+        {
+            return _context.Educations.Find(id);
+        }
+        public void Delete(Education entity)
+        {
+            _context.Educations.Remove(entity);
+            _context.SaveChanges();
         }
     }
 }

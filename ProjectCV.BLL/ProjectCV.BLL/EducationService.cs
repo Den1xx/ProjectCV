@@ -23,9 +23,25 @@ namespace ProjectCV.BLL
         {
             return _educationDal.GetEducationsByIds(ids);
         }
+        public void Create(Education edu)
+        {
+            _educationDal.Create(edu);
+        }
         public void Update(Education eduUpdate)
         {
             _educationDal.Update(eduUpdate);
+        }
+        public Education Find(int id)
+        {
+            return _educationDal.Find(id);            
+        }
+        public void Delete(Education entity)
+        {
+            var edu = _educationDal.Find(entity.Id);
+            if (edu != null)
+            {
+                _educationDal.Delete(edu);
+            }
         }
     }
 }

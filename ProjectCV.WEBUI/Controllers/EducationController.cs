@@ -25,6 +25,24 @@ namespace ProjectCV.WEBUI.Controllers
         {
             return View();
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Create(EducationUpdateDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var educations = _mapper.Map<Education>(model);
+                _educationService.Create(educations);
+
+                return RedirectToAction("Update");
+            }
+
+            return View(model);
+        }
 
         public ActionResult Update()
         {
@@ -44,8 +62,16 @@ namespace ProjectCV.WEBUI.Controllers
                 }
                 return RedirectToAction("Update");
             }
-            
+
             return View(models);
+        }
+        public void Delete(int id)
+        {
+            var ids = _educationService.Find(id);
+            if (ids != null)
+            {
+                _educationService.Delete(ids);
+            }
         }
     }
 }
