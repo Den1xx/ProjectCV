@@ -65,13 +65,14 @@ namespace ProjectCV.WEBUI.Controllers
 
             return View(models);
         }
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
             var idEdu = _educationService.Find(id);
             if (idEdu != null)
             {
                 _educationService.Delete(idEdu);
             }
+             return RedirectToAction("Update");
         }
     }
 }
