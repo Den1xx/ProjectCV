@@ -67,10 +67,10 @@ namespace ProjectCV.WEBUI.Controllers
         }
         public void Delete(int id)
         {
-            var ids = _educationService.Find(id);
-            if (ids != null)
+            var idEdu = _educationService.Find(id);
+            if (idEdu != null)
             {
-                _educationService.Delete(ids);
+                _educationService.Delete(idEdu);
             }
         }
     }
