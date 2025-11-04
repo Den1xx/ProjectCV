@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using ProjectCV.BLL;
+using ProjectCV.DAL.DTOs.CertificatesDTO;
 using ProjectCV.DAL.DTOs.CertificatesUpdateDTO;
+using ProjectCV.DAL.DTOs.EducationDTO;
 using ProjectCV.DAL.DTOs.EducationUpdateDTO;
 using ProjectCV.ENTITY.Entities;
 
@@ -25,6 +27,24 @@ namespace ProjectCV.WEBUI.Controllers
         {
             return View();
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Create(CertificatesCreateDTO certificateDto)
+        {
+            if (ModelState.IsValid)
+            {
+                var certificate = _mapper.Map<Certificate>(certificateDto);
+                _certificateService.Create(certificate);
+
+                return RedirectToAction("Update");
+            }
+            return View(certificateDto);
+        }
+
         public ActionResult Update()
         {
             var certificate = _certificateService.GetAllCertificates();

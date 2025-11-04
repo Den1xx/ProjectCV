@@ -23,6 +23,10 @@ namespace ProjectCV.BLL
         {
             _certificateDal.Update(certUpdate);
         }
+        public void Create(Certificate certCreate)
+        {
+            _certificateDal.Create(certCreate);
+        }
 
 
     }

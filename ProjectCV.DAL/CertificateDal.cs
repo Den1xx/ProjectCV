@@ -19,6 +19,12 @@ namespace ProjectCV.DAL
         {
             return _context.Certificates.ToList();
         }
+        public void Create(Certificate certCreate)
+        {
+            _context.Certificates.Add(certCreate);
+            _context.SaveChanges();
+        }
+
         public int Update(Certificate certUpdate)
         {
             var certificate = _context.Certificates.FirstOrDefault(x => x.Id == certUpdate.Id);

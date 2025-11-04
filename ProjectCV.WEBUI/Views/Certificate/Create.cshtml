@@ -1,8 +1,8 @@
-﻿@using ProjectCV.DAL.DTOs.EducationUpdateDTO
-@model EducationUpdateDTO;
+﻿@using ProjectCV.DAL.DTOs.CertificatesDTO
+@model CertificatesCreateDTO;
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Certificates";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <div class="content-wrapper">
@@ -26,37 +26,31 @@
     <!-- Main content -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Update Education or <a href="/Skill/Update" style="color:blue">click to update</a> </h3>
+            <h3 class="card-title">Update Certificates or <a href="/Certificate/Update" style="color:blue">click to update</a> </h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form asp-action="Create" asp-controller="Education" method="post">
+        <form asp-action="Create" asp-controller="Certificate" method="post">
 
             <input type="hidden" />
             <div class="card-body">
                 <div class="form-group">
-                    
-                        
-                        <label> School Name </label>
-                        <input  name="SchoolName" type="text" value="@Model?.SchoolName" class="form-control">
-                        <div class="form-group">
-                            <label>Start Date  </label>
-                        <input name="StartDate" type="datetime" value="@Model?.StartDate.ToString(" MM-dd-yyyy")" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>End Date  </label>
-                        <input name="EndDate" type="datetime" value="@Model?.EndDate.ToString("MM-dd-yyyy")" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Degree </label>
-                        <input name="Degree" value="@Model?.Degree" type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Text </label>
-                        <input name="Text" type="text" value="@Model?.Text" class="form-control">
-                        </div>
-                    
 
+
+                    <label> Certificate Name </label>
+                    <input name="Name" type="text" value="@Model.Name" class="form-control">
+
+                    <label> Institution Name </label>
+                    <input name="Institution" type="text" value="@Model?.Institution" class="form-control">
+
+                    <div class="form-group">
+                        <label>Start Date  </label>
+                        <input name="StartDate" type="datetime" value="@Model?.StartDate.ToString(" MM-dd-yyyy")" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>End Date  </label>
+                        <input name="EndDate" type="datetime" value="@Model?.EndDate.ToString("MM-dd-yyyy")" class="form-control">
+                    </div>                   
 
                 </div>
 
