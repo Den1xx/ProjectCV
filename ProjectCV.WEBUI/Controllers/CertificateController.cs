@@ -21,6 +21,8 @@ namespace ProjectCV.WEBUI.Controllers
             {
                 cfg.CreateMap<CertificatesUpdateDTO, Certificate>();
                 cfg.CreateMap<Certificate, CertificatesUpdateDTO>();
+                cfg.CreateMap<Certificate, CertificatesCreateDTO>();
+                cfg.CreateMap<CertificatesCreateDTO, Certificate>();
             }).CreateMapper();
         }
         public IActionResult Index()
