@@ -33,6 +33,25 @@
         <div>
         <a href="~/Certificate/Create" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i> Create New Certificate </a>
         </div>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                @TempData["SuccessMessage"]
+                
+            </div>
+        }
+        @if (TempData["UpdateSuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+        @if (TempData["CreateSuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["CreateSuccessMessage"]
+            </div>
+        }
         <form asp-action="Update" asp-controller="Certificate" method="post">
 
             <input type="hidden" />

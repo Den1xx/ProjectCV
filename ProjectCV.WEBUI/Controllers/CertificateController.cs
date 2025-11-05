@@ -41,6 +41,7 @@ namespace ProjectCV.WEBUI.Controllers
             {
                 var certificate = _mapper.Map<Certificate>(certificateDto);
                 _certificateService.Create(certificate);
+                TempData["CreateSuccessMessage"] = "Certificates has been successfully created! check below!";
 
                 return RedirectToAction("Update");
             }
@@ -63,6 +64,7 @@ namespace ProjectCV.WEBUI.Controllers
                     var certificate = _mapper.Map<Certificate>(cert);
                     _certificateService.Update(certificate);
                 }
+                TempData["UpdateSuccessMessage"] = "Certificates has been successfully updated!";
                 return RedirectToAction("Update");
             }
             return View(certificates);
@@ -73,6 +75,7 @@ namespace ProjectCV.WEBUI.Controllers
             if (skillId != null)
             {
                 _certificateService.Delete(skillId);
+                TempData["SuccessMessage"] = "Certificate has been successfully deleted";
                 return RedirectToAction("Update");
             }
             return NotFound();
