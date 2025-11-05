@@ -27,6 +27,14 @@ namespace ProjectCV.BLL
         {
             _certificateDal.Create(certCreate);
         }
+        public Certificate Find(int id)
+        {
+            return _certificateDal.Find(id);
+        }
+        public void Delete(Certificate entity)
+        {
+            _certificateDal.Delete(entity);
+        }
 
 
     }

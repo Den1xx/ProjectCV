@@ -30,6 +30,9 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
+        <div>
+        <a href="~/Certificate/Create" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i> Create New Certificate </a>
+        </div>
         <form asp-action="Update" asp-controller="Certificate" method="post">
 
             <input type="hidden" />
@@ -39,6 +42,8 @@
                     {
                         <input type="hidden" name="[@i].Id" value="@Model[i].Id" asp-for="@Model[i].Id" />
                         <label> <span style="font-weight:900; color: orangered"> @(i + 1)- Institution Name </span></label>
+                        <a href="~/Certificate/Delete?id=@Model[i].Id" style="font-size: 0.8rem; " class="btn btn-danger btn-sm px-2 py-0 ms-2"> <i class="fas fa-trash-alt"></i> Delete this Certificate </a>
+
                         <input asp-for="@Model[i].Name" name="[@i].Name" type="text" value="@Model[i].Name" class="form-control">
                         <div class="form-group">
                             <label><span style="font-weight:bold;color:dodgerblue">Institution Name</span></label>
@@ -54,7 +59,6 @@
                         </div>
                         
                     }
-
 
                 </div>
 

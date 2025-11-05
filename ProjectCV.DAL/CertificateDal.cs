@@ -38,5 +38,15 @@ namespace ProjectCV.DAL
             }
             return _context.SaveChanges();
         }
+        public Certificate Find(int id)
+        {
+            var certificate = _context.Certificates.Find(id);
+            return certificate;
+        }
+        public void Delete(Certificate entity)
+        {
+            _context.Certificates.Remove(entity);
+            _context.SaveChanges();
+        }
     }
 }

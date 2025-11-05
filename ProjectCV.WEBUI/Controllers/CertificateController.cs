@@ -67,5 +67,16 @@ namespace ProjectCV.WEBUI.Controllers
             }
             return View(certificates);
         }
+        public IActionResult Delete(int id)
+        {
+            var skillId = _certificateService.Find(id);
+            if (skillId != null)
+            {
+                _certificateService.Delete(skillId);
+                return RedirectToAction("Update");
+            }
+            return NotFound();
+
+        }
     }
 }
