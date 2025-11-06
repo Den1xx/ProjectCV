@@ -19,6 +19,23 @@ namespace ProjectCV.WEBUI.Controllers
                 cfg.CreateMap<Experience, ExperienceUpdateDTO>();
             }).CreateMapper();
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Create(ExperienceUpdateDTO modelExp)
+        {
+            if (ModelState.IsValid)
+            {
+               
+                    var experience = _mapper.Map<Experience>(modelExp);
+                    _experienceService.Create(experience);
+                
+                return RedirectToAction("Update");
+            }
+            return View(modelExp);
+        }
         public IActionResult Index()
         {
             return View();
@@ -42,6 +59,18 @@ namespace ProjectCV.WEBUI.Controllers
                 return RedirectToAction("Update");
             }
             return View(experiences);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var result = _experienceService.Find(id);
+            if (result != null)
+            {
+                _experienceService.Delete(result);
+                return RedirectToAction("Update");
+            }
+            return NotFound();
+
         }
     }
 }

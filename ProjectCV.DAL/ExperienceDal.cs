@@ -32,5 +32,19 @@ namespace ProjectCV.DAL
             }
             return _context.SaveChanges();
         }
+        public void Create(Experience experience)
+        {
+            _context.Experiances.Add(experience);
+             _context.SaveChanges();
+        }
+        public Experience Find(int id)
+        {
+            return _context.Experiances.Find(id);
+        }
+        public void Delete(Experience id) 
+        {
+            _context.Experiances.Remove(id);
+            _context.SaveChanges();
+        }
     }
 }

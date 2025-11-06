@@ -23,5 +23,18 @@ namespace ProjectCV.BLL
         {
             return _experienceDal.Update(experience);
         }
+        public void Create(Experience experience)
+        {
+             _experienceDal.Create(experience);
+        }
+        public Experience Find(int id) 
+        {
+            return _experienceDal.Find(id);        
+        }
+
+        public void Delete(Experience id)
+        {
+             _experienceDal.Delete(id);
+        }
     }
 }

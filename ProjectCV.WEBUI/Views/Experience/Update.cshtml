@@ -29,7 +29,10 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form asp-action="Update" asp-controller="Education" method="post">
+        <div>
+            <a href="~/Certificate/Create" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i> Create New Certificate </a>
+        </div>
+        <form asp-action="Update" asp-controller="Experience" method="post">
 
             <input type="hidden" />
             <div class="card-body">
@@ -38,6 +41,8 @@
                     {
                         <input type="hidden" name="[@i].Id" value="@Model[i].Id" asp-for="@Model[i].Id" />
                         <label> <span style="font-weight:900; color: orangered"> @(i + 1)- Company Name </span></label>
+                        <a href="~/Experience/Delete?id=@Model[i].Id" style="font-size: 0.8rem; " class="btn btn-danger btn-sm px-2 py-0 ms-2"> <i class="fas fa-trash-alt"></i> Delete this Experience </a>
+
                         <input asp-for="@Model[i].CompanyName" name="[@i].CompanyName" type="text" value="@Model[i].CompanyName" class="form-control">
                         @* <div class="form-group">
                             <label><span style="font-weight:bold;color:dodgerblue">Start Date</span></label>
